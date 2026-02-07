@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoja de Vida</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cv-container {
+            width: 800px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #ccc;
+            margin-right: 20px;
+            overflow: hidden;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta la imagen al contenedor */
+        }
+
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+
+        <div class="header">
+            <div class="photo">
+                <img src="R.png" alt="hola">
+            </div>
+            <div>
+                <h1>Andres Mejía</h1>
+                <p>Estudiante de ingenieria de sistemas</p>
+            </div>
+        </div>
+
+        <section>
+            <h2>Presentación</h2>
+            <p>
+                estudiante 8vo semestre...
+            </p>
+        </section>
+
+        <section>
+            <h2>Información Académica</h2>
+            <ul>
+                <li>Bachillerato – CMAR – 2021</li>
+                
+            </ul>
+        </section>
+
+        <section>
+            <h2>Información Laboral</h2>
+            <ul>
+                <li>Cargo – Empresa – Periodo</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Habilidades e Idiomas</h2>
+            <ul>
+                <li>Java – Python – c# </li>
+                <li>ingles – B1</li>
+                <li>Español – nativo</li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
