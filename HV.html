@@ -16,15 +16,16 @@
     }
 
     .cv-container {
-      max-width: 900px;
-      margin: auto;
+      max-width: 1000px; /* antes 900 */
+      margin: 40px auto; /* más respiración vertical */
       background: white;
       display: grid;
-      grid-template-columns: 300px 1fr;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      border-radius: 10px;
+      grid-template-columns: 280px 1fr; /* sidebar un poco más delgado */
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      border-radius: 12px;
       overflow: hidden;
     }
+
 
     /* ===== COLUMNA IZQUIERDA ===== */
 
@@ -110,6 +111,39 @@
       margin-bottom: 12px;
     }
 
+    .section button {
+      width: 100%;
+      font-size: 18px;
+      font-family: inherit;
+      font-weight: 700;
+      color: #111827;
+      background: #f3f4f6;
+      border: none;
+      border-left: 5px solid #2563eb;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+
+    .section button:hover {
+      background: #e5e7eb;
+    }
+
+    .section-content {
+      display: none;
+      padding-left: 10px;
+      animation: fadeIn 0.25s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
     .section p {
       line-height: 1.6;
       color: #374151;
@@ -149,6 +183,134 @@
   transform: translateY(-2px);
 }
 
+/* Tooltip */
+
+.tech-tip {
+  position: absolute;
+  left: 50%;
+  bottom: 130%;
+  transform: translateX(-50%);
+  background: #111827;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  z-index: 10;
+}
+
+.tech-tip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #111827;
+}
+
+.tech-item:hover .tech-tip {
+  opacity: 1;
+}
+
+.tip-right .tech-tip {
+  left: 2%;
+  transform: translateX(0);
+}
+
+.comment-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.comment-box input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.comment-box button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.comment-box button {
+  width: auto !important;
+  min-width: 110px;
+}
+
+
+.comment-box button:hover {
+  background: #1d4ed8;
+}
+
+
+.comment-item {
+  background: #f3f4f6;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.comment-item span {
+  flex: 1;
+}
+
+.comment-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.comment-delete:hover {
+  background: #dc2626;
+}
+
+.comment-item button {
+  width: auto !important;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-left: none;
+  border-radius: 6px;
+}
+
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.comment-item span {
+  flex: 1;
+}
+
+
     /* ===== IMPRESIÓN ===== */
 
     @media print {
@@ -159,6 +321,8 @@
         box-shadow: none;
       }
     }
+    
+    
   </style>
 </head>
 
@@ -193,67 +357,172 @@
 <h3>TECNOLOGÍAS</h3>
 
 <div class="tech-grid">
-  <div class="tech-item">Java</div>
-  <div class="tech-item">Python</div>
-  <div class="tech-item">C#</div>
-  <div class="tech-item">SQL</div>
-  <div class="tech-item">Git</div>
-  <div class="tech-item">HTML</div>
-  <div class="tech-item">CSS</div>
+
+  <div class="tech-item tip-right">
+    Java
+    <div class="tech-tip">
+      POO, backend, APIs y aplicaciones empresariales
+    </div>
+  </div>
+
+
+  <div class="tech-item">
+    Python
+    <div class="tech-tip">Automatización, IA, análisis de datos</div>
+  </div>
+
+  <div class="tech-item">
+    C#
+    <div class="tech-tip">Aplicaciones .NET y escritorio</div>
+  </div>
+
+  <div class="tech-item tip-right">
+    SQL
+    <div class="tech-tip">
+      Gestión y consulta de bases de datos
+    </div>
+  </div>
+
+
+  <div class="tech-item">
+    Git
+    <div class="tech-tip">Control de versiones y trabajo en equipo</div>
+  </div>
+
+  <div class="tech-item">
+    HTML
+    <div class="tech-tip">Estructura de páginas web</div>
+  </div>
+
+  <div class="tech-item">
+    CSS
+    <div class="tech-tip">Estilos y diseño visual web</div>
+  </div>
+
 </div>
+
 
   </div>
 
   <!-- ===== CONTENIDO ===== -->
-  <div class="content">
+    <div class="content">
+    <div class="section">
+  <button onclick="toggleSection(this)">
+    Perfil Profesional
+  </button>
+
+  <div class="section-content">
+    <p>
+      Estudiante de octavo semestre de Ingeniería de Sistemas con interés en
+      desarrollo de software, inteligencia artificial y soluciones tecnológicas.
+      Destaco por el aprendizaje rápido, responsabilidad y trabajo en equipo.
+    </p>
+  </div>
+</div>
+
 
     <div class="section">
-      <h2>Perfil Profesional</h2>
-      <p>
-        Estudiante de octavo semestre de Ingeniería de Sistemas con interés en
-        desarrollo de software, inteligencia artificial y soluciones tecnológicas.
-        Destaco por el aprendizaje rápido, responsabilidad y trabajo en equipo.
-      </p>
+      <button onclick="toggleSection(this)">
+        Formación Académica
+      </button>
+
+      <div class="section-content">
+
+        <div class="item">
+          <strong>Ingeniería de Sistemas</strong>
+          Universidad — 2022–Actual
+        </div>
+
+        <div class="item">
+          <strong>Bachillerato — CMAR</strong>
+          2021
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="section">
+      <button onclick="toggleSection(this)">
+        Experiencia
+      </button>
+
+      <div class="section-content">
+        <div class="item">
+          <strong>Cargo — Empresa</strong>
+          Periodo<br>
+          Descripción breve.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <button onclick="toggleSection(this)">
+        Proyectos
+      </button>
+
+      <div class="section-content">
+        <div class="item">
+          <strong>Sistema de gestión X</strong>
+          Aplicación desarrollada en Java con base de datos.
+        </div>
+      </div>
     </div>
 
     <div class="section">
-      <h2>Formación Académica</h2>
+  <button onclick="toggleSection(this)">
+    Comentarios
+  </button>
 
-      <div class="item">
-        <strong>Ingeniería de Sistemas</strong>
-        Universidad — 2022–Actual
-      </div>
+  <div class="section-content">
 
-      <div class="item">
-        <strong>Bachillerato — CMAR</strong>
-        2021
-      </div>
+    <div class="comment-box">
+      <input type="text" id="commentInput" placeholder="Escribe un comentario...">
+      <button onclick="addComment()">Agregar</button>
     </div>
 
-    <div class="section">
-      <h2>Experiencia</h2>
-
-      <div class="item">
-        <strong>Cargo — Empresa</strong>
-        Periodo<br>
-        Descripción breve de lo que hiciste y logros.
-      </div>
-
-    </div>
-
-    <div class="section">
-      <h2>Proyectos</h2>
-
-      <div class="item">
-        <strong>Sistema de gestión X</strong>
-        Aplicación desarrollada en Java con base de datos.
-      </div>
-
-    </div>
+    <div id="commentList"></div>
 
   </div>
+</div>
 
 </div>
+<script>
+function toggleSection(btn) {
+  const content = btn.nextElementSibling;
+  const open = content.style.display === "block";
+  content.style.display = open ? "none" : "block";
+}
+
+function addComment() {
+  const input = document.getElementById("commentInput");
+  const list = document.getElementById("commentList");
+
+  const text = input.value.trim();
+  if (!text) return;
+
+  const item = document.createElement("div");
+  item.className = "comment-item";
+
+  const span = document.createElement("span");
+  span.textContent = text;
+
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "Eliminar";
+  delBtn.className = "comment-delete";
+  delBtn.onclick = () => item.remove();
+
+  item.appendChild(span);
+  item.appendChild(delBtn);
+
+  list.prepend(item);
+
+  input.value = "";
+}
+
+
+</script>
 
 </body>
 </html>
